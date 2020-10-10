@@ -6,6 +6,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script defer src="https://maps.googleapis.com/maps/api/js?libraries=places&language=en&key= AIzaSyAm3BSC2zT1YP_ybmWnBxLf9yHhVDhbjKs " type="text/javascript "></script>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css " id="bootstrap-css " rel="stylesheet " />
+    <style>
+        footer {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
 </head>
 
 <body>
@@ -34,19 +41,19 @@
                 <div id="result ">
                     <ul class="list-group ">
                         <li class="list-group-item d-flex justify-content-between align-items-center ">
-                            <h4> Distance is KM : </h4><span id="in_kilo">
+                            <h4> Distance is KM : </h4><span id="in_kilo ">
                             </span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center ">
-                            <h4>Time taken :</h4><span id="duration_value">
+                            <h4>Time taken :</h4><span id="duration_value ">
                                 </span>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center ">
-                            <h4>Bus Fare in RS* :</h4><span id="bus"></span></li>
+                            <h4>Bus Fare in RS* :</h4><span id="bus "></span></li>
                         <li class="list-group-item d-flex justify-content-between align-items-center ">
-                            <h4>Car Fare in RS* :</h4><span id="car"></span></li>
+                            <h4>Car Fare in RS* :</h4><span id="car "></span></li>
                         <li class="list-group-item d-flex justify-content-between align-items-center ">
-                            <h4>Auto Fare in RS* :</h4><span id="auto"></span></li>
+                            <h4>Auto Fare in RS* :</h4><span id="auto "></span></li>
 
                     </ul>
                 </div>
@@ -106,11 +113,11 @@
                         var bus_fare = (distance_in_kilo / 2) * 1.5;
                         var car_fare = distance_in_kilo * 20;
                         var auto_fare = (distance_in_kilo) * 12 * 5;
-                        $('#in_kilo').text(distance_in_kilo.toFixed(2));
-                        $('#duration_value').text(duration_value);
-                        $('#bus').test(bus_fare);
-                        $('#car').test(car_fare);
-                        $('#auto').test(auto_fare);
+                        $('#in_kilo ').text(distance_in_kilo.toFixed(2));
+                        $('#duration_value ').text(duration_value);
+                        $('#bus ').test(bus_fare);
+                        $('#car ').test(car_fare);
+                        $('#auto ').test(auto_fare);
                     }
                 }
             }
@@ -122,6 +129,10 @@
 
         });
     </script>
+    <footer>
+        <p class="fa fa-align-center" aria-hidden="true">
+            </class=> &copy;Hrithik </p>
+    </footer>
 </body>
 
 </html>
