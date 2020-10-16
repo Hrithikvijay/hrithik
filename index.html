@@ -4,7 +4,7 @@
     <title>Travel fare</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script defer src="https://maps.googleapis.com/maps/api/js?libraries=places&language=en&key=AIzaSyAHYbYz4pgFdFtZQ_zaysUuf5T35YLKVJ0" type="text/javascript"></script>
+    <script defer src="https://maps.googleapis.com/maps/api/js?libraries=places&language=en&key=AIzaSyB8VcXRFby4eY-s3UfogDiPFoUVRXX4eKw" type="text/javascript"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" id="bootstrap-css" rel="stylesheet" />
     <style>
@@ -44,8 +44,9 @@
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             <h4> Distance is KM : <span id="in_kilo"></span></h4>
                         </li>
+
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <h4>Time taken in min:<span id="duration_value"></span></h4>
+                            <h4>Time taken:<span id="duration_value"></span></h4>
                         </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
                             <h4>Bus Fare in RS* :<span id="bus"></span></h4>
@@ -117,6 +118,7 @@
                         console.log(response.rows[0].elements[0].distance);
                         var distance_in_kilo = distance.value / 1000; // the kilom
                         var duration_value = duration.value / 60;
+                        var duration_in_hrs = duration.value / 3600;
                         var bus_fare = (distance.value / 2000) * 1.5;
                         var car_fare = (distance.value / 1000) * 20;
                         var auto_fare = (distance.value / 1000) * 12;
@@ -124,8 +126,17 @@
                         console.log(bus_fare.toFixed(2));
                         console.log(auto_fare.toFixed(2));
                         console.log(car_fare.toFixed(2));
+
+                        function timeConvert(n) {
+                            var num = n;
+                            var hours = (num / 60);
+                            var hour = Math.floor(hours);
+                            var minutes = (hours - hour) * 60;
+                            var minute = Math.round(minutes);
+                            return hour + " hour(s) and " + minute + " minute(s).";
+                        }
                         $('#in_kilo').text(distance_in_kilo.toFixed(2));
-                        $('#duration_value').text(duration_value.toFixed(2));
+                        $('#duration_value').text(timeConvert(duration_value));
                         $('#bus').text(bus_fare.toFixed(0));
                         $('#car').text(car_fare.toFixed(0));
                         $('#auto').text(auto_fare.toFixed(0));
