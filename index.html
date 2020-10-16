@@ -5,6 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script defer src="https://maps.googleapis.com/maps/api/js?libraries=places&language=en&key=AIzaSyAHYbYz4pgFdFtZQ_zaysUuf5T35YLKVJ0" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" id="bootstrap-css" rel="stylesheet" />
     <style>
         footer {
@@ -41,19 +42,26 @@
                 <div id="result">
                     <ul class="list-group">
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <h4> Distance is KM : </h4><span id="in_kilo"></span></li>
+                            <h4> Distance is KM : <span id="in_kilo"></span></h4>
+                        </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <h4>Time taken in min:</h4><span id="duration_value"></span></li>
+                            <h4>Time taken in min:<span id="duration_value"></span></h4>
+                        </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <h4>Bus Fare in RS* :</h4><span id="bus"></span></li>
+                            <h4>Bus Fare in RS* :<span id="bus"></span></h4>
+                        </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <h4>Car Fare in RS* :</h4><span id="car"></span></li>
+                            <h4>Car Fare in RS* :<span id="car"></span></h4>
+                        </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <h4>Auto Fare in RS* :</h4><span id="auto"></span></li>
+                            <h4>Auto Fare in RS* :<span id="auto"></span></h4>
+                        </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <h4>Recommended Transportation mode:</h4><span id="Rec"></span></li>
+                            <h4>Recommended Transportation mode:<span id="Rec"></span></h4>
+                        </li>
                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <h4>Nearest Transportation Facility:</h4><span id="near"></span></li>
+                            <h4>Nearest Transportation Facility:<span id="near"></span></h4>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -113,15 +121,15 @@
                         var car_fare = (distance.value / 1000) * 20;
                         var auto_fare = (distance.value / 1000) * 12;
                         var recommended = "Car";
-                        $('#in_kilo').text(distance_in_kilo.toFixed(2));
-                        $('#duration_value').text(duration_value.toFixed(2));
-                        $('#bus').test((distance.value / 2000) * 1.5);
-                        $('#car').test((distance.value / 2000) * 20);
-                        $('#auto').test((distance.value / 2000) * 12);
-                        $('#Rec').text(recommended);
                         console.log(bus_fare.toFixed(2));
                         console.log(auto_fare.toFixed(2));
                         console.log(car_fare.toFixed(2));
+                        $('#in_kilo').text(distance_in_kilo.toFixed(2));
+                        $('#duration_value').text(duration_value.toFixed(2));
+                        $('#bus').text(bus_fare.toFixed(0));
+                        $('#car').text(car_fare.toFixed(0));
+                        $('#auto').text(auto_fare.toFixed(0));
+                        $('#Rec').text(recommended);
                     }
                 }
             }
