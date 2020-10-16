@@ -4,7 +4,7 @@
     <title>Travel fare</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script defer src="https://maps.googleapis.com/maps/api/js?libraries=places&language=en&key=AIzaSyCN2f4OtSNZMWOEt7uEkV2KapbUwENmy_M" type="text/javascript"></script>
+    <script defer src="https://maps.googleapis.com/maps/api/js?libraries=places&language=en&key=AIzaSyAHYbYz4pgFdFtZQ_zaysUuf5T35YLKVJ0" type="text/javascript"></script>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" id="bootstrap-css" rel="stylesheet" />
     <style>
         footer {
@@ -119,6 +119,9 @@
                         $('#car').test((distance.value / 2000) * 20);
                         $('#auto').test((distance.value / 2000) * 12);
                         $('#Rec').text(recommended);
+                        console.log(bus_fare.toFixed(2));
+                        console.log(auto_fare.toFixed(2));
+                        console.log(car_fare.toFixed(2));
                     }
                 }
             }
