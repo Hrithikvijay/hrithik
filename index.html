@@ -108,18 +108,17 @@
                         var duration = response.rows[0].elements[0].duration;
                         console.log(response.rows[0].elements[0].distance);
                         var distance_in_kilo = distance.value / 1000; // the kilom
-                        var duration_value = duration.value/60;
-                        var bus_fare = (distance_in_kilo/2) * 1.5;
-                        var car_fare = distance_in_kilo * 20;
-                        var auto_fare = (distance_in_kilo) * 12;
+                        var duration_value = duration.value / 60;
+                        var bus_fare = (distance.value / 2000) * 1.5;
+                        var car_fare = (distance.value / 1000) * 20;
+                        var auto_fare = (distance.value / 1000) * 12;
                         var recommended = "Car";
                         $('#in_kilo').text(distance_in_kilo.toFixed(2));
-                        $('#duration_value').text(duration_value);
-                        $('#bus').test(bus_fare.toFixed(2));
-                        $('#car').test(car_fare.toFixed(2));
-                        $('#auto').test(auto_fare.toFixed(2));
+                        $('#duration_value').text(duration_value.toFixed(2));
+                        $('#bus').test((distance.value / 2000) * 1.5);
+                        $('#car').test((distance.value / 2000) * 20);
+                        $('#auto').test((distance.value / 2000) * 12);
                         $('#Rec').text(recommended);
-
                     }
                 }
             }
