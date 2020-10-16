@@ -4,7 +4,7 @@
     <title>Travel fare</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script defer src="https://maps.googleapis.com/maps/api/js?libraries=places&language=en&key=AIzaSyAfrKxrbgc7YhRED5Kv2R0EKQ_9pXDDeWI" type="text/javascript"></script>
+    <script defer src="https://maps.googleapis.com/maps/api/js?libraries=places&language=en&key=AIzaSyATvndpKk7AVTbop0zx6mITgPCv_QAUEss" type="text/javascript"></script>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" id="bootstrap-css" rel="stylesheet" />
     <style>
         footer {
@@ -108,8 +108,8 @@
                         var duration = response.rows[0].elements[0].duration;
                         console.log(response.rows[0].elements[0].distance);
                         var distance_in_kilo = distance.value / 1000; // the kilom
-                        var duration_value = duration.value;
-                        var bus_fare = (distance_in_kilo) * 1.5;
+                        var duration_value = duration.value/60;
+                        var bus_fare = (distance_in_kilo/2) * 1.5;
                         var car_fare = distance_in_kilo * 20;
                         var auto_fare = (distance_in_kilo) * 12;
                         var recommended = "Car";
