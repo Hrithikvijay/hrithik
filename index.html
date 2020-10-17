@@ -4,7 +4,7 @@
     <title>Travel fare</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script defer src="https://maps.googleapis.com/maps/api/js?libraries=places&language=en&key=AIzaSyA-il3d-gPwQzkHhEte-9UPQUXm73i4T5o" type="text/javascript"></script>
+    <script defer src="https://maps.googleapis.com/maps/api/js?libraries=places&language=en&key=AIzaSyDMpMDn8BppYh3eK00hq0Np8Y_8JHdJED8" type="text/javascript"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" id="bootstrap-css" rel="stylesheet" />
     <style>
@@ -116,9 +116,32 @@
                         var distance_in_kilo = distance.value / 1000; // the kilom
                         var duration_value = duration.value / 60;
                         var duration_in_hrs = duration.value / 3600;
-                        var bus_fare = (distance.value / 2000) * 2;
-                        var car_fare = (distance.value / 1000) * 20;
-                        var auto_fare = (distance.value / 1000) * 16;
+                        var bus_fare = (distance.value / 1000);
+                        var car_fare = 0;
+                        var auto_fare = 0;
+                        var distance_in = distance_in_kilo;
+                        if (distance_in < 1.8) {
+                            auto_fare = 25;
+                        } else {
+                            auto_fare += 25;
+                            distance_in -= 1.8;
+                            auto_fare += distance_in * 12;
+                        }
+                        distance_in = distance_in_kilo;
+                        if (distance_in < 4) {
+                            car_fare = 100;
+                        } else {
+                            car_fare += 100;
+                            distance_in -= 4;
+                            car_fare += distance_in * 20;
+                        }
+                        var d = new Date();
+                        var n = d.getHours();
+                        if (n < 6 || n > 22) {
+                            car_fare *= 2;
+                            auto_fare *= 2;
+                            bus_fare *= 2;
+                        }
                         var recommended = "Car";
                         console.log(bus_fare.toFixed(2));
                         console.log(auto_fare.toFixed(2));
